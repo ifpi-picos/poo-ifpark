@@ -3,7 +3,7 @@ import java.util.spi.CalendarDataProvider;
 
 public class CadastroVeiculos {
   private String placa;
-  private Calendar dataHoraEntrada;
-  private Calendar dataHoraSaida;
+  private String dataHoraEntrada;
+  private String dataHoraSaida;
   private float valorTotal;
 }
