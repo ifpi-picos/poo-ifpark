@@ -12,4 +12,39 @@ public class Endereco {
         this.cidade = cidade;
         this.uf = uf;
     }
+
+    public String getRua() {
+        return this.rua;
+    }
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public int getNumero() {
+        return this.numero;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getBairro() {
+        return this.bairro;
+    }
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return this.cidade;
+    }
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return this.uf;
+    }
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
 }
