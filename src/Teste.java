@@ -57,7 +57,7 @@ public class Teste {
                 String nome = scanner.nextLine();
     
                 System.out.println("Valor por hora:");
-                float valorHora = scanner.nextFloat();
+                double valorHora = scanner.nextDouble();
                 scanner.nextLine();
     
                 System.out.println("Vagas:");
@@ -81,7 +81,6 @@ public class Teste {
                 String uf = scanner.nextLine();
                 
                 estacionamento.adicionarEstacionamento(new Estacionamento(nome, valorHora, vagas, new Endereco(rua, numero, bairro, cidade, uf)));
-                System.out.println(estacionamento.getList());
             }
             else if (opcao == 1) {
                 System.out.println("Selecione qual estacionamento será removido:");
@@ -91,7 +90,6 @@ public class Teste {
                     number = number +1;
                 }
                 int op = scanner.nextInt();
-                System.out.println(estacionamento.getList());
                 estacionamento.removerEstacionamento(op);
             }
             else if (opcao == 2) {
@@ -112,7 +110,6 @@ public class Teste {
                     System.out.println("Qual a placa do veículo:");
                     String placa = scanner.nextLine();
                     estacionamento.getList().get(op).addVeiculos(new EntradaVeiculo(placa));
-                    System.out.println(estacionamento.getList().get(op).getVeiculos());
                 }
                 else {
                     System.out.println("Todas as vagas estão preenchidas");
@@ -130,7 +127,8 @@ public class Teste {
                     scanner.nextLine();
                     System.out.println("Qual a placa do veículo:");
                     String placa = scanner.nextLine();
-                    estacionamento.getList().get(op).removeVeiculos(placa);
+                    double valor = estacionamento.getList().get(op).removeVeiculos(placa);
+                    System.out.println(valor);
                 }
                 else {
                     System.out.println("Não há nenhum veículos nesse estacionamento.");
