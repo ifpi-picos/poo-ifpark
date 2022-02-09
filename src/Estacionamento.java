@@ -17,12 +17,20 @@ public class Estacionamento {
         this.endereco = endereco;
     }
 
+    public void setEndereco(String rua, int num, String bairro, String cidade, String uf) {
+        this.endereco.setRua(rua);
+        this.endereco.setNumero(num);
+        this.endereco.setBairro(bairro);
+        this.endereco.setCidade(cidade);
+        this.endereco.setUf(uf);
+    }
+
     public void addVeiculos(EntradaVeiculo entrada) {
         this.entradaVeiculos.add(entrada);
         return;
     }
     
-    public double removeVeiculos(String placa) {
+    public List<String> removeVeiculos(String placa) {
         int value = 0;
         int value2 = -1;
         for(EntradaVeiculo veiculo : entradaVeiculos) {
@@ -35,10 +43,14 @@ public class Estacionamento {
             entradaVeiculos.get(value2).setDataHoraSaida();
             double valor = getValorEstacionamento(entradaVeiculos.get(value2));
             addRegistroDeVeicuos(value2);
+            List<String> lista = new ArrayList<>();
+            lista.add(String.valueOf(valor));
+            lista.add(String.valueOf(entradaVeiculos.get(value2).getDataHoraEntrada()));
+            lista.add(String.valueOf(entradaVeiculos.get(value2).getDataHoraSaida()));
             entradaVeiculos.remove(value2);
-            return valor;
+            return lista;
         } else {
-            return value2;
+            return new ArrayList<>();  
         }
     }
 
@@ -46,7 +58,7 @@ public class Estacionamento {
         entradaVeiculo.setMilisegundosSaida();
         double qtd = entradaVeiculo.getMilissegundosSaida() - entradaVeiculo.getMilissegundosEntrada();
         entradaVeiculo.setQtdHoras(qtd);
-        double valorEstacionamento = ((qtd)/360000)*valorHora;
+        double valorEstacionamento = ((qtd)/3600000)*valorHora;
         return valorEstacionamento;
     }
 
